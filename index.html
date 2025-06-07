@@ -208,8 +208,9 @@
       ]
     },
     options: {
-       responsive: true,                // ✅ 반응형
-    maintainAspectRatio: false,      // ✅ 비율 깨질 수도 있으니 false
+      responsive: true,
+  maintainAspectRatio: true,  // ⬅️ 이거 TRUE로
+  aspectRatio: 1,             // ⬅️ 1:1 비율 (정사각형 느낌)
       scales: {
         x: { beginAtZero: true,
       title: {        // ⬅️ 요 부분 추가

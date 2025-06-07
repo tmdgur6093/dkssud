@@ -1,0 +1,832 @@
+.intro {
+  height: 100vh;
+  background: #000; /* 블랙 배경 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.intro-content {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.intro-content h1 {
+  font-size: 2.5rem;
+  color: #ff4444; /* 빨간색 */
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.intro-content p {
+  font-size: 1.2rem;
+  color: #f0f0f0; /* 밝은 회색 */
+  margin-bottom: 0.8rem;
+}
+
+.scroll-indicator {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #fff;
+  animation: blink 1.5s infinite;
+  opacity: 0.7;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+
+.dual-axis-chart-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease, transform 2s ease;
+   margin-bottom: 100px; /* ⬅️ 추가: 보이스피싱-스미싱 사이 간격 */
+}
+
+.dual-axis-chart-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+canvas#voicePhishingChart,
+canvas#smishingChart {
+  background: #000;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+canvas#bubbleChart {
+  width: 800px;   /* 너비 줄이기 */
+  height: 800px;  /* 높이 줄이기 */
+  background: #000;
+  border-radius: 10px;
+  padding: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.bubble-title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease, transform 2s ease;
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.bubble-chart-section.visible .bubble-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+.trend-chart-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease, transform 2s ease;
+  margin-bottom: 100px;
+}
+
+.trend-chart-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.trend-title {
+  color: white;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+canvas#trendChart {
+  background: #000;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.smishing-intro-section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+ .highlight {
+  color: #68e6c4; /* 초록색 강조 */
+  font-weight: bold;
+}
+
+
+.smishing-intro-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro-text h2 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.smishing-trend-graphic img {
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+  display: block;       /* 추가 */
+  margin: 0 auto;       /* 추가 */
+ 
+}
+
+
+
+.smishing-intro-section {
+  min-height: 30vh;
+  padding: 80px 20px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease, transform 2s ease;
+  max-width: 800px;      /* 💡 추가 */
+  margin: 0 auto;        /* 💡 추가 */
+}
+
+.smishing-intro-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro-text h2 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+
+/* 슬라이드 */
+.case-slider {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.case-slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.slide {
+  flex: 0 0 auto;
+  background-color: #222;
+  color: white;
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 200px;
+  text-align: center;
+}
+
+
+/* 스미싱 문자 예시 */
+.sms-example {
+  margin: 40px 0;
+}
+
+.sms-example img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* 슬라이드 호버 효과 */
+.slide {
+  flex: 0 0 auto;
+  background-color: #222;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 200px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer; /* 마우스 올리면 커서 바뀜 */
+}
+
+.slide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(200, 31, 31, 0.2);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+
+  align-items: center;      /* 세로 중앙정렬 */
+  justify-content: center;  /* 가로 중앙정렬 */
+  padding: 0;               /* ✅ 꼭 필요 — 위쪽 패딩 없애야 정확히 중앙 */
+}
+
+
+.modal-card {
+  background-color: rgba(26, 25, 25, 0.023);
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 90%;
+  width: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: center;
+  position: relative;
+}
+
+.modal-image {
+  max-width: 90%;
+  max-height: 400px; /* ❗ 최대 높이 제한 */
+  border-radius: 15px;
+  margin-bottom: 15px;
+  object-fit: contain; /* 비율 유지하며 축소 */
+}
+
+
+.modal-text {
+  font-size: 18px;
+  color: #fff;
+  margin-top: 15px;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #666;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10000;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.phishing-awareness-section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.phishing-awareness-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.phishing-awareness-title {
+  color: white;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.phishing-awareness-images {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+/* 기존 img 스타일 삭제하고 */
+.phishing-awareness-item canvas {
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #000; /* 캔버스 기본 배경 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.phishing-awareness-item {
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.phishing-awareness-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+
+.smishing-trend-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.smishing-item {
+  display: flex; /* ➔ 가로 배치 */
+  flex-direction: row; /* ➔ 가로 방향 */
+  align-items: center;
+  gap: 20px; /* 아이템 간 간격 */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.smishing-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.year {
+  min-width: 80px;
+  min-height: 80px;
+  border-radius: 50%;
+  background: #385778;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.type {
+  background: #a8a59a;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+.trend-bubble {
+  background: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  line-height: 1.6;
+  font-size: 16px;
+  position: relative;
+  flex: 1; /* 말풍선은 남은 공간 다 차지 */
+}
+
+.trend-bubble::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #333;
+}
+
+.case-slider-title {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.link-to-image {
+  color: #4ea1f3; /* 링크 색상 */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 라이트박스 기본 스타일 */
+.lightbox {
+  display: none; /* 시작은 안 보이게 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* 어두운 배경 */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s ease;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 부드럽게 페이드인 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.link-to-lightbox {
+  color: #4ea1f3;        /* 링크 느낌 파란색 */
+  text-decoration: underline; /* 밑줄 */
+  cursor: pointer;       /* 손모양 커서 */
+  font-weight: 500;      /* 살짝 두껍게 */
+}
+
+.image-caption {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #ccc;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 600px; /* 이미지 크기에 맞게 */
+}
+/*보이스피싱*/
+.voicephishing-intro-section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease, transform 2s ease;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.voicephishing-intro-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.voicephishing-image img {
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+  margin: 30px 0;
+  display: block;
+}
+
+/*딥보이스*/
+.deepvoice-quiz-section {
+  margin: 20px 0;
+  padding: 80px 20px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.audio-quiz {
+  display: flex;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.audio-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-buttons button {
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quiz-buttons button:hover {
+  background-color: #555;
+}
+
+.quiz-result {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #4ea1f3;
+}
+
+.warning-text {
+  display: flex;         /* flex로 정렬 */
+  justify-content: center; /* 중앙정렬 */
+  align-items: center;
+  margin: 40px auto;
+  padding: 10px 20px;
+  border: 1px solid red;
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+  width: fit-content;    /* 내용에 딱 맞게 */
+  background-color: transparent; /* 배경 없음 */
+}
+
+
+.text-between-charts {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: #000; /* 어두운 배경 */
+  color: #ccc;             /* 본문 글씨 회색 */
+  text-align: center;
+  line-height: 1.8;
+  font-size: 20px;
+}
+
+.text-between-charts .highlight {
+  color: #68e6c4; /* 초록색 강조 */
+  font-weight: bold;
+  font-size: 25px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.text-below-trend {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  text-align: center;
+  color: #ccc; /* 기본 본문 글씨 */
+  line-height: 1.8;
+  font-size: 20px;
+}
+
+.text-below-trend strong {
+  color: #fff;
+  font-size: 25px;
+}
+
+.text-below-trend .highlight {
+  color: #68e6c4; /* 강조 초록색 */
+  font-weight: bold;
+}
+
+.image-caption {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #ccc; /* 기본 본문 */
+  text-align: center;
+  line-height: 1.5;
+  max-width: 600px; /* 이미지 크기에 맞게 */
+}
+
+/* 강조 텍스트 */
+.image-caption .highlight {
+  color: #68e6c4; /* 초록색 강조 */
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.image-caption strong {
+  color: #fff;
+  font-size: 25px;
+}
+
+/* 문구 + 영상 같이 있는 블록 */
+.phishing-video-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  padding: 80px 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.phishing-video-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.phishing-video-intro {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px; /* ⬅️ 문구와 영상 간격 */
+}
+
+.phishing-video-intro h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #68e6c4; /* 강조색 */
+}
+
+.phishing-video-intro p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.deepvoice-info-section {
+  background-color: #000;
+  color: #ccc;
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.deepvoice-info-section h2 {
+  font-size: 32px;
+  color: #68e6c4; /* 강조색 */
+  margin-bottom: 30px;
+}
+
+.deepvoice-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.deepvoice-text p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.deepvoice-text strong {
+  color: #ffffff; /* 강조를 하얀색 */
+}
+
+.phishing-survey-section {
+  background-color: #000;
+  color: #ccc;
+  text-align: center;
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.phishing-survey-section h2 {
+  font-size: 32px;
+  color: #68e6c4; /* 강조 */
+  margin-bottom: 30px;
+}
+
+.phishing-survey-section p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+canvas#phishingSurveyChart {
+  background: #000;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.survey-summary {
+  font-size: 20px;
+  color: #68e6c4;
+  font-weight: bold;
+}
+
+.qr-ending-section {
+  background-color: #000; 
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+}
+
+.qr-ending-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #68e6c4;
+}
+
+.qr-ending-subtitle {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.qr-code-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.qr-code img {
+  width: 180px;
+  height: 180px;
+  border: 5px solid #68e6c4;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.qr-code img:hover {
+  transform: scale(1.1);
+}
+
+.qr-ending-message {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.qr-ending-final {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #68e6c4;
+}
+
+.highlight {
+  color: #ff5555;
+}
